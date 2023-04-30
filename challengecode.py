@@ -2,18 +2,21 @@ import sys
 
 ciphered = ""
 
-sys.stdin = ''.join([i for i in sys.stdin if i.isalpha()])
+input_text = input()
+input_text = ''.join([i for i in input_text if i.isalpha()])
 
-sys.stdin = sys.stdin.upper()
+input_text = input_text.upper()
 
 count = 0
 count2 = 0
 
-for char in sys.stdin:
-  if ord(char) + sys.argv <= 133:
-    ciphered = ciphered + chr(ord(char) + sys.argv)
+n = int(sys.argv[1])
+
+for char in input_text:
+  if ord(char) + n <= 133:
+    ciphered = ciphered + chr(ord(char) + n)
   else:
-    ciphered = ciphered + chr(ord(char) - (26-sys.argv))
+    ciphered = ciphered + chr(ord(char) - (26-n))
 
   count = count + 1
 
